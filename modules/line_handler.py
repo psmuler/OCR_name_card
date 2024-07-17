@@ -88,6 +88,8 @@ async def push_sender(user_id: str, messages: list[str]):
 async def image_handler(user_id: str, message_id: str):
   image_content = await get_image_content(message_id=message_id)
   try: 
+    return await push_sender(user_id, [TextMessage(text=str(message_id))])
+
     res_text = detect_text(content=image_content)
   except Exception as e:
     print(e)

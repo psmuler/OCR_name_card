@@ -21,6 +21,7 @@ async def favicon():
 @app.post("/callback")
 async def handle_callback(request: Request):
   signature = request.headers['X-Line-Signature']
+  
   body = await request.body()
   body = body.decode()
 
