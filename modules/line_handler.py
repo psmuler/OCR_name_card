@@ -104,10 +104,10 @@ async def image_handler(user_id: str, message_id: str):
     if res.status_code == 200:
       return await push_sender(user_id, [TextMessage(text='データのアップロードに成功しました')])
     else:
-      return await push_sender(user_id, [TextMessage(text='データのアップロードに失敗しました')])
+      return await push_sender(user_id, [TextMessage(text=f'データのアップロードに失敗しました{res.status_code} {res.reason} {res.text}')])
   except Exception as e:
     print(e)
-    return await push_sender(user_id, [TextMessage(text='データのアップロードに失敗しました')])
+    return await push_sender(user_id, [TextMessage(text=f'データのアップロードに失敗しました{e}')])
   
 async def get_image_content(message_id: str):
   url = f"https://api-data.line.me/v2/bot/message/{message_id}/content"

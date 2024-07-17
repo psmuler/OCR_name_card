@@ -1,7 +1,7 @@
 import json
 import base64
 
-file_path = './divine-fuze-387415-8b3c994487be.json'
+file_path = './bold-upgrade-343710-8f94885cd310.json'
 
 # JSONオブジェクト
 with open (file_path, "r") as file:
